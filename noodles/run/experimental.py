@@ -60,7 +60,11 @@ def logging_worker(n_threads, display):
                     splice.send((key, 'done', result, None))
 
             except Exception as error:
-                splice.send((key, 'error', None, error))
+                if job.hints and 'ignore_error' in job.hints:
+                    splice.send((key, 'done', None, error))
+                else:
+                    splice.send((key, 'error', None, error))
+                
 
     for i in range(n_threads):
         t = threading.Thread(

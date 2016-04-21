@@ -30,7 +30,7 @@ class Display:
             self.out << ['save'] << ['up', self.jobs[key]['line']] \
             << ['forward', max(50, self.jobs[key]['length'] + 2)]
             self.out << "(" << ['fg', 60, 180, 100] << "✔" << ['reset'] \
-            << ")" << ['restore']
+            << ") " << self.jobs[key]['confirm'].format(return_value=data) << ['restore']
 
         if key in self.jobs and msg:
             self.message_handler(self.jobs[key], msg)
