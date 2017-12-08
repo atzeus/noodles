@@ -14,7 +14,7 @@ Noodles - easy parallel programming for Python
 ==============================================
 
 Often, a computer program can be sped up by executing parts of its code *in
-parallel* (simultaneously), as opposed to *synchronously* (one part after
+parallel* (simultaneously), as opposed to *sequentially* (one part after
 another).
 
 A simple example may be where you assign two variables, as follows ``a = 2 * i``
